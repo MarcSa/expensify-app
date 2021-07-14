@@ -22,20 +22,22 @@ store.dispatch(addExpense({
     description:'Gas Bill', 
     note:'Fucking Gas Bill', 
     amount:25000, 
+    createdAt: 1000 
+}))
+
+store.dispatch(addExpense({
+    description:'Rent', 
+    note:'Fucking Rent Bill', 
+    amount:109500, 
     createdAt: 0 
 }))
 
-store.dispatch(setTextFilter('water'))
 
-setTimeout(() => {
-    store.dispatch(setTextFilter('bill'))
-}, 3000);
+const state=store.getState()
 
-// const state=store.getState()
+const visibleExpenses = getVisisbleExpenses(state.expenses, state.filters  )
 
-// const visibleExpenses = getVisisbleExpenses(state.expenses, state.filters  )
-
-// console.log(visibleExpenses)
+console.log(visibleExpenses)
 
 const jsx = (
     <Provider store={store}>
