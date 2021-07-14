@@ -31,7 +31,6 @@ setTimeout(() => {
     store.dispatch(setTextFilter('bill'))
 }, 3000);
 
-
 // const state=store.getState()
 
 // const visibleExpenses = getVisisbleExpenses(state.expenses, state.filters  )
