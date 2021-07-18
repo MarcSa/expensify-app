@@ -9,6 +9,7 @@ import getVisisbleExpenses from './selectors/expenses'
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 
+
 const store = configureStore()
 
 store.dispatch(addExpense({
@@ -33,11 +34,11 @@ store.dispatch(addExpense({
 }))
 
 
-const state=store.getState()
+// const state=store.getState()
 
-const visibleExpenses = getVisisbleExpenses(state.expenses, state.filters  )
+// const visibleExpenses = getVisisbleExpenses(state.expenses, state.filters  )
 
-console.log(visibleExpenses)
+// console.log(visibleExpenses)
 
 const jsx = (
     <Provider store={store}>

@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { setTextFilter, sortByDate, sortByAmount } from '../actions/filters'
+import 'react-dates/initialize'
+
 
 const ExpenseListFilters =(props)=>(
     <div>
