@@ -24,20 +24,6 @@ test('should generate set end date action object', () => {
     })
 })
 
-test('should generate a sort date object', () => {
-    const action = sortByDate()
-    expect(action).toEqual({
-        type:'SORT_BY_DATE'
-    })
-})
-
-test('should generate a sort amount object', () => {
-    const action = sortByAmount()
-    expect(action).toEqual({
-        type:'SORT_BY_AMOUNT'
-    })
-})
-
 test('should generate a set text filter object', () => {
     const action = setTextFilter('test')
     expect(action).toEqual({
@@ -51,5 +37,17 @@ test('should generate a set text filter object default', () => {
     expect(action).toEqual({
         type:'SET_TEXT_FILTER',
         text: ''
+    })
+})
+
+test('should generate a sort date object', () => {
+    expect(sortByDate()).toEqual({
+        type:'SORT_BY_DATE'
+    })
+})
+
+test('should generate a sort amount object', () => {
+    expect(sortByAmount()).toEqual({
+        type:'SORT_BY_AMOUNT'
     })
 })
