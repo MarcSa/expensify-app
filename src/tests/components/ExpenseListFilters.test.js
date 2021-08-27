@@ -4,10 +4,10 @@ import { ExpenseListFilters } from '../../components/ExpenseListFilters'
 import {filters, altFilters} from '../fixtures/filters'
 import moment from 'moment'
 
-let setTextfilter, sortByDate, sortByAmount, setStartDate, setEndDate, wrapper
+let setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate, wrapper
 
 beforeEach(() => {
-    setTextfilter=jest.fn()
+    setTextFilter=jest.fn()
     sortByDate=jest.fn()
     sortByAmount=jest.fn()
     setStartDate=jest.fn()
@@ -15,7 +15,7 @@ beforeEach(() => {
     wrapper= shallow(
         <ExpenseListFilters 
             filters={filters}
-            setTextfilter={setTextfilter}
+            setTextFilter={setTextFilter}
             sortByDate={sortByDate}
             sortByAmount={sortByAmount}
             setStartDate={setStartDate}
@@ -40,7 +40,7 @@ test('should handle text change', () => {
     wrapper.find('input').simulate('change', {
         target: { value }
     })
-    expect(setTextfilter).toHaveBeenLastCalledWith(value)
+    expect(setTextFilter).toHaveBeenLastCalledWith(value)
 })
 
 test('should sort by date', () => {
