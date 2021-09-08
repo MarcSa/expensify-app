@@ -2,9 +2,9 @@
   "name": "expensify",
   "scripts": {
     "serve": "live-server public",
-    "build:dev": "webpack --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js",
-    "dev-server": "webpack serve",
+    "build:dev": "set NODE_ENV='test' && webpack --config webpack.dev.js",
+    "build:prod": "set NODE_ENV='production' && webpack --config webpack.prod.js",
+    "dev-server": "set NODE_ENV='test' && webpack serve",
     "test": "jest --runInBand --config=jest.config.json",
     "test-watch": "jest --watchAll --runInBand --config=jest.config.json"
   },
@@ -44,6 +44,7 @@
     "webpack": "^5.40.0"
   },
   "devDependencies": {
+    "mini-css-extract-plugin": "^2.2.2",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   }
