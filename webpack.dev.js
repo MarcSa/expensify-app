@@ -1,9 +1,11 @@
-const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
 const path = require('path')
 
-
-module.exports = merge(common, {
+module.exports = {
+    entry: './src/app.js',
+    output: {
+        path: path.join(__dirname, 'public'),
+        filename: 'bundle.js'
+    },
     module: {
         rules: [{
             loader: 'babel-loader',
@@ -28,4 +30,4 @@ module.exports = merge(common, {
     devServer: {
         static: './dist',
     },
-});
+}
