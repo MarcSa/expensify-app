@@ -1,5 +1,4 @@
 node_modules
-public/bundle.js
-public/bundle.map.js
-public/main.css
-public/main.map.css
+public/dist/bundle.map.js
+public/dist/main.map.css
+public/dist/bundle.js.LICENSE.txt

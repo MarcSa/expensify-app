@@ -23,7 +23,8 @@ module.exports = {
     
     devServer: {
         static: path.join(__dirname, 'public'),
-        historyApiFallback: true
+        historyApiFallback: true,
+        publicPath:'/dist/'
     },
     mode: 'development',
     devtool: 'eval-source-map',

@@ -4,7 +4,7 @@ const path = require('path')
 module.exports =  {
     entry: './src/app.js',
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'public', 'dist'),
         filename: 'bundle.js'
     },
     plugins: [new MiniCssExtractPlugin()],
@@ -25,7 +25,8 @@ module.exports =  {
     
     devServer: {
         static: path.join(__dirname, 'public'),
-        historyApiFallback: true
+        historyApiFallback: true,
+        publicPath:'/dist/'
     },
     mode: 'production',
     devtool: 'source-map',
