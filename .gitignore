@@ -1,4 +1,2 @@
 node_modules
-public/dist/bundle.map.js
-public/dist/main.map.css
-public/dist/bundle.js.LICENSE.txt
+public/dist/
