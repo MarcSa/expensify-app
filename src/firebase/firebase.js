@@ -1,11 +1,11 @@
 import {
 	initializeApp
-} from "firebase/app";
+} from "firebase/app"
 import {
 	getDatabase,
 	ref,
 	set
-} from "firebase/database";
+} from "firebase/database"
 
 const firebaseConfig = {
 	apiKey: "AIzaSyABif5vCeo6_BB047cTmam7wShiMsN8Nqk",
@@ -20,7 +20,25 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig)
 
-const db = getDatabase();
-set(ref(db, '/' ), {
+const database = getDatabase()
+
+set(ref(database, '/' ), {
   name: 'Marc',
-});
+  age:38,
+  isSingle: true,
+  location:{
+	  city:'Santpedor',
+	  country: 'Spain'
+  }
+})
+
+// set(ref(database, '/' ), 
+// 	'This is my data'
+// )
+
+set(ref(database, 'age' ), 39)
+set(ref(database, 'location/city' ), 'Manresa')
+set(ref(database, 'attributes' ), {
+	height: 167,
+	weight: 62.5
+})
