@@ -4,7 +4,8 @@ import {
 import {
 	getDatabase,
 	ref,
-	set
+	set,
+	remove
 } from "firebase/database"
 
 const firebaseConfig = {
@@ -30,15 +31,20 @@ set(ref(database, '/' ), {
 	  city:'Santpedor',
 	  country: 'Spain'
   }
+}).then(()=>{
+	console.log('Data is saved')
+}).catch((e)=>{
+	console.log(`This failed. ${e}`)
 })
 
-// set(ref(database, '/' ), 
-// 	'This is my data'
-// )
-
-set(ref(database, 'age' ), 39)
-set(ref(database, 'location/city' ), 'Manresa')
-set(ref(database, 'attributes' ), {
-	height: 167,
-	weight: 62.5
+set(ref(database, '/isSingle' ), null).then(()=>{
+	console.log('removed')
+}).catch((e)=>{
+	console.log(`This failed. ${e}`)
 })
+
+// remove(ref(database, '/isSingle' )).then(()=>{
+// 	console.log('removed')
+// }).catch((e)=>{
+// 	console.log(`This failed. ${e}`)
+// })
