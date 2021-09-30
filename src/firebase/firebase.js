@@ -11,7 +11,11 @@ import {
 	get, 
 	onValue, 
 	off,
-	push
+	push, 
+	forEach,
+	onChildRemoved,
+	onChildChanged,
+	onChildAdded 
 	
 } from "firebase/database"
 
@@ -29,24 +33,70 @@ initializeApp(firebaseConfig)
 
 const database = getDatabase()
 
-push(ref(database, 'expenses'), {
-    description: 'Gum',
-    note: '',
-    amount: 195,
-    createdAt: 0
+// Child removed
+
+onChildRemoved(ref(database, 'expenses'), (snapshot) => {
+	if (snapshot.exists()) {
+
+		console.log(snapshot.key, snapshot.val());
+	} else {
+		console.log("No data available")
+	}
+}, {
+	onlyOnce: false
+}, (e)=>{
+	console.log(`Error with data fetching: ${e}`)
 })
-push(ref(database, 'expenses'), {
-    description: 'Rent',
-    note: '',
-    amount: 109500,
-    createdAt: moment(0).subtract(4, 'days').valueOf()
+
+onChildChanged(ref(database, 'expenses'), (snapshot) => {
+	if (snapshot.exists()) {
+		console.log(snapshot.key, snapshot.val());
+	} else {
+		console.log("No data available")
+	}
+}, {
+	onlyOnce: false
+}, (e)=>{
+	console.log(`Error with data fetching: ${e}`)
 })
-push(ref(database, 'expenses'), {
-    description: 'Credit Card',
-    note: '',
-    amount: 40050,
-    createdAt:  moment(0).add(4, 'days').valueOf()
+
+onChildAdded(ref(database, 'expenses'), (snapshot) => {
+	if (snapshot.exists()) {
+		console.log(snapshot.key, snapshot.val());
+	} else {
+		console.log("No data available")
+	}
+}, {
+	onlyOnce: false
+}, (e)=>{
+	console.log(`Error with data fetching: ${e}`)
 })
+
+// onValue(ref(database, 'expenses'), (snapshot) => {
+// 	if (snapshot.exists()) {
+// 		const expenses=[]
+// 		snapshot.forEach((childSnapshot)=>{
+// 			expenses.push({
+// 				id:childSnapshot.key,
+// 				...childSnapshot.val()
+// 			})
+// 		})
+// 		console.log(expenses);
+// 	} else {
+// 		console.log("No data available")
+// 	}
+// }, {
+// 	onlyOnce: false
+// }, (e)=>{
+// 	console.log(`Error with data fetching: ${e}`)
+// })
+
+// push(ref(database, 'expenses'), {
+//     description: 'Gum',
+//     note: '',
+//     amount: 195,
+//     createdAt: 0
+// })
 
 // push(ref(database, 'notes'), {
 // 	title: 'Course Topics',
