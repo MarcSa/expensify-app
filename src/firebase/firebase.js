@@ -1,23 +1,27 @@
-import {
-	initializeApp
-} from "firebase/app"
-import moment from "moment"
-import {
-	getDatabase,
-	ref,
-	set,
-	remove,
-	update,
-	get, 
-	onValue, 
-	off,
-	push, 
-	forEach,
-	onChildRemoved,
-	onChildChanged,
-	onChildAdded 
+import firebase from 'firebase'
+
+// FIREBASE V9
+
+// import {
+// 	initializeApp
+// } from "firebase/app"
+// import moment from "moment"
+// import {
+// 	getDatabase,
+// 	ref,
+// 	set,
+// 	remove,
+// 	update,
+// 	get, 
+// 	onValue, 
+// 	off,
+// 	push, 
+// 	forEach,
+// 	onChildRemoved,
+// 	onChildChanged,
+// 	onChildAdded 
 	
-} from "firebase/database"
+// } from "firebase/database"
 
 const firebaseConfig = {
 	apiKey: "AIzaSyABif5vCeo6_BB047cTmam7wShiMsN8Nqk",
@@ -29,48 +33,53 @@ const firebaseConfig = {
 	appId: "1:593844685122:web:807f8e314914dba17ca0db"
 }
 
-initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig)
 
-const database = getDatabase()
+const database = firebase.database()
+
+export {firebase, database as default}
+
+
+// firebase v9 notation
 
 // Child removed
 
-onChildRemoved(ref(database, 'expenses'), (snapshot) => {
-	if (snapshot.exists()) {
+// onChildRemoved(ref(database, 'expenses'), (snapshot) => {
+// 	if (snapshot.exists()) {
 
-		console.log(snapshot.key, snapshot.val());
-	} else {
-		console.log("No data available")
-	}
-}, {
-	onlyOnce: false
-}, (e)=>{
-	console.log(`Error with data fetching: ${e}`)
-})
+// 		console.log(snapshot.key, snapshot.val());
+// 	} else {
+// 		console.log("No data available")
+// 	}
+// }, {
+// 	onlyOnce: false
+// }, (e)=>{
+// 	console.log(`Error with data fetching: ${e}`)
+// })
 
-onChildChanged(ref(database, 'expenses'), (snapshot) => {
-	if (snapshot.exists()) {
-		console.log(snapshot.key, snapshot.val());
-	} else {
-		console.log("No data available")
-	}
-}, {
-	onlyOnce: false
-}, (e)=>{
-	console.log(`Error with data fetching: ${e}`)
-})
+// onChildChanged(ref(database, 'expenses'), (snapshot) => {
+// 	if (snapshot.exists()) {
+// 		console.log(snapshot.key, snapshot.val());
+// 	} else {
+// 		console.log("No data available")
+// 	}
+// }, {
+// 	onlyOnce: false
+// }, (e)=>{
+// 	console.log(`Error with data fetching: ${e}`)
+// })
 
-onChildAdded(ref(database, 'expenses'), (snapshot) => {
-	if (snapshot.exists()) {
-		console.log(snapshot.key, snapshot.val());
-	} else {
-		console.log("No data available")
-	}
-}, {
-	onlyOnce: false
-}, (e)=>{
-	console.log(`Error with data fetching: ${e}`)
-})
+// onChildAdded(ref(database, 'expenses'), (snapshot) => {
+// 	if (snapshot.exists()) {
+// 		console.log(snapshot.key, snapshot.val());
+// 	} else {
+// 		console.log("No data available")
+// 	}
+// }, {
+// 	onlyOnce: false
+// }, (e)=>{
+// 	console.log(`Error with data fetching: ${e}`)
+// })
 
 // onValue(ref(database, 'expenses'), (snapshot) => {
 // 	if (snapshot.exists()) {
