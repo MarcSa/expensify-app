@@ -13,7 +13,7 @@ if (process.env.NODE_ENV==='test'){
     })
 }
 
-console.log(process.env.FIREBASE_API_KEY)
+
 
 module.exports = {
     entry: './src/app.js',
