@@ -1,5 +1,5 @@
 import firebase from 'firebase/app'
-import firebase from 'firebase/database'
+import 'firebase/database'
 
 // FIREBASE V9
 
