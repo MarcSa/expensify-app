@@ -6,7 +6,7 @@
   "scripts": {
     "build:dev": "set NODE_ENV='test' && webpack --config webpack.dev.js",
     "build:prod": "set NODE_ENV='production' && webpack --config webpack.prod.js",
-    "dev-server": "set NODE_ENV='test' && webpack serve",
+    "dev-server": "set NODE_ENV='test' && webpack serve", 
     "test": "cross-env NODE_ENV=test jest --runInBand --config=jest.config.json",
     "test-watch": "cross-env NODE_ENV=test jest --watchAll --runInBand --config=jest.config.json",
     "start": "node server/server.js",
